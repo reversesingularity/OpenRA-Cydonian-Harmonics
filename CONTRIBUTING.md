@@ -1,15 +1,55 @@
-# OpenRA Mod SDK Contributing Guidelines
+# Contributing to Cydonian Harmonics
 
-Thank you for your interest in OpenRA, OpenRA modding, and the OpenRA Mod SDK.  OpenRA is an open source project, and our community members – you – are the driving force behind it.  There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into OpenRA, the Mod SDK, or our other sub-projects.
+Thank you for helping build this OpenRA total conversion. This repository is
+**not** a generic Mod SDK bug tracker — engine issues belong upstream at
+[OpenRA/OpenRA](https://github.com/OpenRA/OpenRA).
 
-Please note that this repository is specifically for the scripts and infrastructure used to develop and build mods; bugs and feature requests against OpenRA itself should be directed to [the main OpenRA/OpenRA repository](https://github.com/OpenRA/OpenRA).  If you do come across a bug with the Mod SDK, or would like to request a new feature, then please take a look at the issue tracker first to see if it has already been reported.
+## Before you write code
 
-When developing new features, it is important to make sure that they work on all our supported platforms.  Right now, this means Windows >= 7 (with PowerShell >= 3), macOS >= 10.7, and Linux.  We would like to also support *BSD, but do not currently have a means to test this.
+1. Read [`AGENTS.md`](AGENTS.md) and the [canon hard lines](README.md#canon-hard-lines).
+2. For non-trivial traits or campaign logic, open or update a plan under
+   `.cursor/plans/` and wait for approval.
+3. Prefer conditions over cross-trait hard references.
 
-Some issues to be aware of include:
-* Use https://www.shellcheck.net/ to confirm POSIX compatibility of *.sh scripts.
-* Avoid non-standard gnu extensions to common Unix tools (e.g. the `-f` flag from GNU `readlink`)
+## Loop Engineering
 
-While your pull-request is in review it will be helpful if you join IRC to discuss the changes.
+Never claim a green build without observing output:
 
-See also the in-depth guide on [contributing](https://github.com/OpenRA/OpenRA/wiki/Contributing) on the main OpenRA project wiki.  Most of the content on this page also applies to the Mod SDK.
+```powershell
+.\make.cmd all
+.\utility.cmd cydonian --check-yaml
+.\make.cmd test
+```
+
+```bash
+make
+./utility.sh cydonian --check-yaml
+make test
+```
+
+## Style
+
+| Area | Rule |
+|---|---|
+| C# | `TraitInfo` + runtime pair; no allocations in `ITick`; balance in YAML |
+| MiniYaml | Match existing indent; `^Templates`; `@` labels for duplicate traits |
+| Lua | Map-relative scripts; campaign-only; use `OperationalSilence` / `EmpyrealMedia` helpers |
+| Lore copy | Acoustic vocabulary only; Raphael never a combat VoiceSet |
+
+## Pull requests
+
+- Keep PRs focused; avoid drive-by refactors.
+- Include verify commands and observed results in the PR body.
+- Lore-facing text should pass Binitarian / Acoustic / Azazel checks.
+- Do not commit `engine/`, `packaging/output/`, `.env`, or PDF binaries.
+
+## Platform notes
+
+- Windows installers are produced from Linux/WSL (`makensis` + `wine64`).
+- macOS `.dmg` requires a macOS host.
+- Shell scripts should remain POSIX-friendly (`shellcheck` encouraged).
+
+## Community
+
+Participation is governed by [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+Security reports: [`SECURITY.md`](SECURITY.md).

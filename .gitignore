@@ -72,6 +72,11 @@ _ReSharper.*/
 
 # Packaged release artifacts
 dist/
+packaging/output/
+packaging/windows/build/
+packaging/windows/rcedit-x64.exe
+packaging/linux/*.appdir/
+packaging/linux/appimagetool*
 
 # Large binary docs (source .md kept)
 *.pdf

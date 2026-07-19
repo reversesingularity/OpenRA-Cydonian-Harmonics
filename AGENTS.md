@@ -65,6 +65,19 @@ Continuous grind hook: `.cursor/hooks/grind.sh` (see `.cursor/hooks.json`).
 3. **No auto-run YOLO** — halt and ask before destructive terminal commands
    or large-scale file wipes.
 
+## Milestone status (agents: do not regress)
+
+| Milestone | Status |
+|---|---|
+| Phase J — Lua campaign / Operational Silence | Shipped (`15cf594`) |
+| Release packaging `release-20260719` | Artifacts under `packaging/output/` (gitignored) |
+| Session handoff | [`docs/SESSION.md`](docs/SESSION.md) |
+| Public docs | [`README.md`](README.md), [`GOVERNANCE.md`](GOVERNANCE.md) |
+
+Campaign Lua must keep Tobit / radar / Empyreal Register mute wired through the
+`operational-silence` condition bus — never hardcode balance or bypass
+`EmpyrealSpeechGate`.
+
 ## Directory Map
 
 ```
