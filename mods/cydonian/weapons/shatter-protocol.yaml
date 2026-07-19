@@ -1,0 +1,23 @@
+shatter-protocol:
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	Range: 0c0
+	Projectile: InstantHit
+	Warhead@WARDS: RevokeExternalCondition
+		Condition: warded
+		Range: 2c0
+		AffectsParent: false
+		ValidTargets: Ground, GroundActor, WaterActor
+	Warhead@STRUCTURE: SpreadDamage
+		Spread: 1c0
+		Damage: 20000
+		ValidTargets: GroundActor, WaterActor
+		Versus:
+			None: 50
+			Wood: 100
+			Light: 100
+			Heavy: 150
+			Concrete: 200
+	Warhead@FX: CreateEffect
+		Image: example
+		Explosions: idle
+		ImpactActors: false

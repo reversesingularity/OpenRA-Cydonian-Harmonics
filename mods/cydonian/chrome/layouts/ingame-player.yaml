@@ -4,3 +4,14 @@ Container@PLAYER_WIDGETS:
 		LogicTicker@SIDEBAR_TICKER:
 		MenuButton@OPTIONS_BUTTON:
 			Key: escape
+		Container@SUPPORT_POWERS:
+			Logic: SupportPowerBinLogic
+			X: 10
+			Y: 10
+			Children:
+				SupportPowers@SUPPORT_PALETTE:
+					IconSize: 64, 48
+					ReadyText: supportpowers.ready
+					HoldText: supportpowers.hold
+					HotkeyPrefix: SupportPower
+					HotkeyCount: 6

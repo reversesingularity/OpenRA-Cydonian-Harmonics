@@ -4,6 +4,11 @@
 
 player:
 	Inherits: ^baseplayer
+	TechTree:
+	SupportPowerManager:
+	PlayerResonance:
+		Capacity: 1000
+		InitialAmount: 500
 	DeveloperMode:
 
 editorplayer:

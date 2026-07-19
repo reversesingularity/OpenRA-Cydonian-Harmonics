@@ -7,6 +7,11 @@ RESONANCE.SPIRE:
 		Range: 8c0
 		Frequency: 432
 		Polarity: Creation
+	AcousticResonance@WARD:
+		Condition: warded
+		Range: 5c0
+		Frequency: 528
+		Polarity: Creation
 	CelestialAlignmentProvider:
 		Condition: celestially-aligned
 		BaseFrequency: 1024
@@ -29,6 +34,24 @@ CELESTIAL_STARGATE:
 		DecayScalar: 1024
 		RequiresAlignmentNode: true
 		UpdateInterval: 5
+	ResonanceSupportPower@SHATTER:
+		OrderName: ShatterProtocol
+		ChargeInterval: 3000
+		ResonanceCost: 250
+		Weapon: shatter-protocol
+		Icon: idle
+		IconImage: example
+		IconPalette: greyscale
+		Cursor: default
+		BlockedCursor: default
+		BeaconPalette: greyscale
+		BeaconPaletteIsPlayerPalette: false
+		BeaconPosterPalette: greyscale
+		Name: supportpower-shatter.name
+		Description: supportpower-shatter.description
+		StartFullyCharged: true
+		SupportPowerPaletteOrder: 10
+		AllowMultiple: false
 	FirepowerMultiplier@ALIGNED:
 		RequiresCondition: celestially-aligned
 		Modifier: 150
@@ -42,6 +65,11 @@ ANAKIM.TITAN:
 		CustomCollisionRadius: 1c0
 	ExternalCondition@SUSTAINED:
 		Condition: sustained
+	ExternalCondition@WARDED:
+		Condition: warded
 	FirepowerMultiplier@SUSTAINED:
 		RequiresCondition: sustained
 		Modifier: 125
+	DamageMultiplier@WARDED:
+		RequiresCondition: warded
+		Modifier: 50

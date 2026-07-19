@@ -8,3 +8,13 @@ faction-example =
     .name = Example
     .description = Example Faction
      Provide your own faction description here.
+
+## support powers
+supportpower-shatter =
+    .name = Shatter Protocol
+    .description = Expend Resonance to project a counter-frequency.
+     Strips Oathbound acoustic wards and devastates structures.
+
+supportpowers =
+    .ready = Ready
+    .hold = On Hold
