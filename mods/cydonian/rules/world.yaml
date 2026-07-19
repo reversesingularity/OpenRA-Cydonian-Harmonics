@@ -17,18 +17,30 @@
 	ScreenMap:
 	Selection:
 	TerrainRenderer:
+	Locomotor@FOOT:
+		Name: foot
+		SharesCell: true
+		TerrainSpeeds:
+			Clear: 100
+			Resonance_Tier1: 80
+			Resonance_Tier2: 55
+			Resonance_Tier3: 35
 
 world:
 	Inherits: ^baseworld
 	CelestialAlignmentNetwork:
 		CycleLength: 1500
 		ActiveDuration: 500
+		BandThresholds: 1, 64, 256
+		BandTerrainTypes: Resonance_Tier1, Resonance_Tier2, Resonance_Tier3
+		TerrainSyncInterval: 5
 	ColorPickerManager:
 		PreviewActor: example.colorpicker
 	CreateMapPlayers:
 	CustomTerrainDebugOverlay:
 	DebugVisualizations:
 	MapStartingLocations:
+	PathFinder:
 	SpawnMapActors:
 	SpawnStartingUnits:
 	StartingUnits@Example:

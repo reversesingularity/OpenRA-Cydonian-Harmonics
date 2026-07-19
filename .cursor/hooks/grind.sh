@@ -27,16 +27,19 @@ run_step() {
   fi
 }
 
-MAKE_CMD=(make)
-if [[ ! -x "$(command -v make)" ]] && [[ -f ./make.cmd ]]; then
-  MAKE_CMD=(cmd.exe //c make.cmd)
+# Prefer .cmd wrappers whenever present (Git Bash on Windows often has a unix
+# `make` that chokes on CRLF mod.config / shell scripts). Always pass `all`
+# to avoid the interactive bare-make menu hang.
+if [[ -f ./make.cmd ]]; then
+  MAKE_CMD=(cmd.exe //c make.cmd all)
+else
+  MAKE_CMD=(make all)
 fi
 
-UTILITY=()
-if [[ -f ./utility.sh ]]; then
-  UTILITY=(bash ./utility.sh cydonian --check-yaml)
-elif [[ -f ./utility.cmd ]]; then
+if [[ -f ./utility.cmd ]]; then
   UTILITY=(cmd.exe //c utility.cmd cydonian --check-yaml)
+elif [[ -f ./utility.sh ]]; then
+  UTILITY=(bash ./utility.sh cydonian --check-yaml)
 else
   echo "ERROR: neither utility.sh nor utility.cmd found" | tee -a "$LOG"
   exit 2

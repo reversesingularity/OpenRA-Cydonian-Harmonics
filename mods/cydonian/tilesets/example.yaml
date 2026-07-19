@@ -7,6 +7,20 @@ General:
 Terrain:
 	TerrainType@Clear:
 		Type: Clear
+		TargetTypes: Ground
+		Color: 284428
+	TerrainType@Resonance_Tier1:
+		Type: Resonance_Tier1
+		TargetTypes: Ground
+		Color: 6B5A2A
+	TerrainType@Resonance_Tier2:
+		Type: Resonance_Tier2
+		TargetTypes: Ground
+		Color: 8A6A1E
+	TerrainType@Resonance_Tier3:
+		Type: Resonance_Tier3
+		TargetTypes: Ground
+		Color: B07A10
 
 Templates:
 	Template@255:

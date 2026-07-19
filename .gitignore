@@ -79,3 +79,7 @@ dist/
 # Git worktrees local checkout dir
 .worktrees/
 
+
+# Grind loop logs
+.cursor/hooks/logs/
+
