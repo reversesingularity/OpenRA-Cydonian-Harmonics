@@ -1,0 +1,81 @@
+# Local Claude Code overrides (per-developer, never committed)
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Secrets
+.env
+.env.*
+
+# Build output
+bin/
+obj/
+__pycache__/
+*.user
+/bin/debug/cydonian/
+
+# Engine checkout is vendored separately
+engine/
+
+# OS noise
+Thumbs.db
+.DS_Store
+
+# Graphify output (regenerated)
+graphify-out/
+user.config
+engine
+
+# Visual Studio
+Release
+bin
+obj
+*.ncb
+*.vcproj*
+*.suo
+*.user
+*.sln.cache
+*.manifest
+*.CodeAnalysisLog.xml
+*.lastcodeanalysissucceeded
+_ReSharper.*/
+/.vs
+
+# Visual Studio Code
+/.vscode/settings.json
+
+# backup files by various editors
+*~
+*.orig
+\#*
+.*.sw?
+
+# Monodevelop
+*.pidb
+*.userprefs
+
+# Mac OS X
+.DS_Store
+
+# SublimeText
+*.sublime-project
+*.sublime-workspace
+
+# NUnit
+/TestResult.xml
+/lib/
+
+# Support directory
+/Support
+
+# IntelliJ files
+.idea
+
+# Packaged release artifacts
+dist/
+
+# Large binary docs (source .md kept)
+*.pdf
+
+# Git worktrees local checkout dir
+.worktrees/
+

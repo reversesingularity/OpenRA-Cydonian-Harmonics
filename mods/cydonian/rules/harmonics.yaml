@@ -1,0 +1,47 @@
+RESONANCE.SPIRE:
+	Inherits: example
+	RenderSprites:
+		Image: example
+	AcousticResonance@SUSTAIN:
+		Condition: sustained
+		Range: 8c0
+		Frequency: 432
+		Polarity: Creation
+	CelestialAlignmentProvider:
+		Condition: celestially-aligned
+		BaseFrequency: 1024
+		ResonanceRadius: 6c0
+		DecayScalar: 1024
+		RequiresAlignmentNode: true
+		UpdateInterval: 5
+	FirepowerMultiplier@ALIGNED:
+		RequiresCondition: celestially-aligned
+		Modifier: 150
+
+CELESTIAL_STARGATE:
+	Inherits: example
+	RenderSprites:
+		Image: example
+	CelestialAlignmentProvider:
+		Condition: celestially-aligned
+		BaseFrequency: 1024
+		ResonanceRadius: 8c0
+		DecayScalar: 1024
+		RequiresAlignmentNode: true
+		UpdateInterval: 5
+	FirepowerMultiplier@ALIGNED:
+		RequiresCondition: celestially-aligned
+		Modifier: 150
+
+ANAKIM.TITAN:
+	Inherits: example
+	RenderSprites:
+		Image: example
+	AnakimPhysicalPresenceScaler:
+		VisualScaleFactor: 350
+		CustomCollisionRadius: 1c0
+	ExternalCondition@SUSTAINED:
+		Condition: sustained
+	FirepowerMultiplier@SUSTAINED:
+		RequiresCondition: sustained
+		Modifier: 125
