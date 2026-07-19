@@ -42,6 +42,9 @@ world:
 	MapStartingLocations:
 	PathFinder:
 	SpawnMapActors:
+	# Secure Lua 5.1 sandbox. Global Scripts empty; campaign maps override Scripts in map rules.yaml.
+	LuaScript:
+		Scripts:
 	SpawnStartingUnits:
 	StartingUnits@Example:
 		BaseActor: example

@@ -1,0 +1,5 @@
+world:
+	LuaScript:
+		Scripts: campaign-bootstrap.lua, operational-silence.lua, map-events.lua, mission.lua
+	MissionData:
+		Briefing: Eden departure. When the Empyreal Register falls silent, radar and the Tobit Protocol die with it. Hold the frequency until the channel returns.

@@ -41,6 +41,18 @@
 	WithColoredOverlay@WARDUNRAVELED:
 		RequiresCondition: ward-unraveled
 		Color: 20808066
+	# Tobit Protocol acoustic binding (Raphael support power — never a combat VoiceSet).
+	ExternalCondition@TOBITBOUND:
+		Condition: tobit-bound
+	DamageMultiplier@TOBITBOUND:
+		RequiresCondition: tobit-bound
+		Modifier: 200
+	FirepowerMultiplier@TOBITBOUND:
+		RequiresCondition: tobit-bound
+		Modifier: 25
+	WithColoredOverlay@TOBITBOUND:
+		RequiresCondition: tobit-bound
+		Color: F0E6A066
 
 # Stub infantry until the full Oathbound roster lands.
 GUARDIAN.INFANTRY:
@@ -122,6 +134,7 @@ AZAZEL.PROXY:
 	Health:
 		HP: 8000
 	Mobile:
+		RequiresCondition: !tobit-bound
 		Locomotor: foot
 		Speed: 72
 		Cursor: default
@@ -149,16 +162,22 @@ RESONANCE.SPIRE:
 	Inherits: ^GuardianUnit
 	RenderSprites:
 		Image: example
+	# Operational Silence mutes Creation-frequency collectors (severed Empyreal channel).
 	AcousticResonance@SUSTAIN:
+		RequiresCondition: !operational-silence
 		Condition: sustained
 		Range: 8c0
 		Frequency: 432
 		Polarity: Creation
 	AcousticResonance@WARD:
+		RequiresCondition: !operational-silence
 		Condition: warded
 		Range: 5c0
 		Frequency: 528
 		Polarity: Creation
+	# Spire observes player-mirrored silence via local ExternalCondition (Lua grants on owned spires).
+	ExternalCondition@OPERATIONALSILENCE:
+		Condition: operational-silence
 	CelestialAlignmentProvider:
 		Condition: celestially-aligned
 		BaseFrequency: 1024

@@ -36,6 +36,11 @@ supportpower-sustain-harmony =
     .description = Expend Resonance to lock the Creation Frequency over a zone.
      Allies regenerate rapidly and are warded against Nephilim pressure.
 
+supportpower-tobit-protocol =
+    .name = Tobit Protocol
+    .description = Expend Resonance to invoke Liaigh's acoustic binding.
+     Temporarily binds supernatural enemies across a wide radius. Severed during Operational Silence.
+
 supportpowers =
     .ready = Ready
     .hold = On Hold

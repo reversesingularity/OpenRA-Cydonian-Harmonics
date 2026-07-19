@@ -1,0 +1,48 @@
+MapFormat: 12
+
+RequiresMod: cydonian
+
+Title: Dudael Breach
+
+Author: Cydonian Harmonics
+
+Tileset: EXAMPLE
+
+MapSize: 34,34
+
+Bounds: 1,1,32,32
+
+Visibility: MissionSelector
+
+Categories: Campaign
+
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		NonCombatant: True
+		Faction: Random
+	PlayerReference@Creeps:
+		Name: Creeps
+		NonCombatant: True
+		Faction: Random
+		Enemies: Multi0
+	PlayerReference@Multi0:
+		Name: Multi0
+		Playable: True
+		AllowBots: False
+		Required: True
+		LockFaction: True
+		Faction: example
+		LockColor: True
+		LockSpawn: True
+		LockTeam: True
+		Enemies: Creeps
+
+Actors:
+	Actor0: mpspawn
+		Owner: Multi0
+		Location: 10,16
+	IceShelfMarker: mpspawn
+		Owner: Neutral
+		Location: 22,16

@@ -1,0 +1,19 @@
+# Tobit Protocol — acoustic binding strike (Raphael / Liaigh support power only).
+tobit-protocol:
+	Inherits: ^AcousticStrike
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	Range: 0c0
+	Report: audio/weapons/sustain-harmony-strike.wav
+	Projectile: InstantHit
+	Warhead@BIND: GrantExternalCondition
+		Condition: tobit-bound
+		Duration: 375
+		Range: 4c0
+		AffectsParent: false
+		ValidRelationships: Enemy
+		ValidTargets: GroundActor, WaterActor
+	Warhead@FX: CreateEffect
+		Image: example
+		Explosions: idle
+		ImpactActors: false
+		ImpactSounds: audio/weapons/sustain-harmony-strike.wav

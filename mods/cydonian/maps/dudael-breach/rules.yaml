@@ -1,0 +1,5 @@
+world:
+	LuaScript:
+		Scripts: campaign-bootstrap.lua, operational-silence.lua, map-events.lua, mission.lua
+	MissionData:
+		Briefing: Antarctica. Approach the Ross Ice Shelf marker. When the shelf ruptures, Azazel's biomechanical swarms pour from Dudael.

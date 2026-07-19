@@ -29,8 +29,7 @@ namespace OpenRA.Mods.Cydonian.Traits
 		{
 			if (pool == null)
 			{
-				Game.Sound.PlayNotification(self.World.Map.Rules, self.Owner, "Speech",
-					info.InsufficientPowerSpeechNotification, self.Owner.Faction.InternalName);
+				EmpyrealSpeechGate.TryPlaySpeechNotification(self.Owner, info.InsufficientPowerSpeechNotification);
 				TextNotificationsManager.AddTransientLine(self.Owner, info.InsufficientPowerTextNotification);
 				return false;
 			}
@@ -38,8 +37,7 @@ namespace OpenRA.Mods.Cydonian.Traits
 			if (!pool.Take(resonanceCost))
 			{
 				Game.Sound.PlayToPlayer(SoundType.UI, self.Owner, info.InsufficientPowerSound);
-				Game.Sound.PlayNotification(self.World.Map.Rules, self.Owner, "Speech",
-					info.InsufficientPowerSpeechNotification, self.Owner.Faction.InternalName);
+				EmpyrealSpeechGate.TryPlaySpeechNotification(self.Owner, info.InsufficientPowerSpeechNotification);
 				TextNotificationsManager.AddTransientLine(self.Owner, info.InsufficientPowerTextNotification);
 				return false;
 			}

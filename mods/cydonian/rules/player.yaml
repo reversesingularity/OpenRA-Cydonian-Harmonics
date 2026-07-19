@@ -10,6 +10,50 @@ player:
 		Capacity: 1000
 		InitialAmount: 500
 	DeveloperMode:
+	# Operational Silence / Empyreal Register condition bus (Lua GrantCondition / RevokeCondition).
+	ExternalCondition@OPERATIONALSILENCE:
+		Condition: operational-silence
+	ExternalCondition@EMPYREALLINK:
+		Condition: empyreal-link
+	ExternalCondition@EDENDILATED:
+		Condition: eden-dilated
+	# Radar collapses when Operational Silence severs the Empyreal channel.
+	ProvidesRadar:
+		RequiresCondition: !operational-silence
+	# Mute TobitProtocol (and listed Register lines) while silence is active.
+	EmpyrealSpeechGate:
+		RequiresCondition: operational-silence
+		MutedNotifications: TobitProtocol
+	# Eden dilation Resonance amplifier (gated by DateTime.GameTime mission scripts).
+	EdenTimeDilation:
+		RequiresCondition: eden-dilated
+		ResonancePerInterval: 25
+		Interval: 25
+	# Tobit Protocol — Raphael / Liaigh late-game support power (never a combat unit).
+	ResonanceSupportPower@TOBIT:
+		OrderName: TobitProtocol
+		ChargeInterval: 4500
+		ResonanceCost: 400
+		Weapon: tobit-protocol
+		RequiresCondition: empyreal-link && !operational-silence
+		OnFireSound: audio/weapons/sustain-harmony-strike.wav
+		Icon: idle
+		IconImage: example
+		IconPalette: greyscale
+		Cursor: default
+		BlockedCursor: default
+		BeaconPalette: greyscale
+		BeaconPaletteIsPlayerPalette: false
+		BeaconPosterPalette: greyscale
+		Name: supportpower-tobit-protocol.name
+		Description: supportpower-tobit-protocol.description
+		StartFullyCharged: true
+		SupportPowerPaletteOrder: 30
+		AllowMultiple: false
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
+		EndChargeSpeechNotification: TobitProtocol
+		LaunchSound: audio/weapons/sustain-harmony-strike.wav
 
 editorplayer:
 	Inherits: ^baseplayer
