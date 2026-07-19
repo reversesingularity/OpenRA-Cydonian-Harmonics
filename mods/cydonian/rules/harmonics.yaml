@@ -1,4 +1,5 @@
 # Abstract Oathbound receiver bundle — harmony buffs + dermal-mark Layer One receivers.
+# Faraday (faraday-shield) jams Layer One LoS leak without cleansing the mark.
 ^GuardianUnit:
 	Inherits: example
 	Health:
@@ -17,8 +18,10 @@
 		Modifier: 50
 	ExternalCondition@DERMALMARK:
 		Condition: dermal-mark
+	ExternalCondition@FARADAY:
+		Condition: faraday-shield
 	RevealsShroud@DERMALMARK:
-		RequiresCondition: dermal-mark
+		RequiresCondition: dermal-mark && !faraday-shield
 		Range: 2c0
 		ValidRelationships: Enemy
 	WithColoredOverlay@DERMALMARK:
@@ -70,6 +73,37 @@ CIAN.MACMORNA:
 		Image: example
 	Tooltip:
 		Name: actor-cian-mac-morna.name
+	MapEditorData:
+		Categories: Actors
+
+# Brennan McNeeve — Enochian Faraday Cage (432 Hz archive jam vs Layer One).
+BRENNAN.MCNEEVE:
+	Inherits: ^GuardianUnit
+	-Immobile:
+	Mobile:
+		Locomotor: foot
+		Speed: 64
+		Cursor: default
+		BlockedCursor: default
+	Selectable:
+	ProximityExternalCondition@FARADAY:
+		Condition: faraday-shield
+		Range: 5c0
+		ValidRelationships: Ally
+		AffectsParent: true
+	WithRangeCircle@FARADAY:
+		Type: enochian-faraday
+		Range: 5c0
+		Color: A0A8B0A0
+		Visible: WhenSelected
+		ValidRelationships: Ally
+	AmbientSound@FARADAY:
+		SoundFiles: audio/faraday-hum.wav
+		Interval: 40
+	RenderSprites:
+		Image: example
+	Tooltip:
+		Name: actor-brennan-mcneeve.name
 	MapEditorData:
 		Categories: Actors
 

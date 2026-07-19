@@ -20,6 +20,11 @@ actor-cian-mac-morna =
     .description = Oathbound hero. Mo Chrá projects an Armaros-class counter-frequency
      that unravels Watcher-grade wards on nearby enemies.
 
+actor-brennan-mcneeve =
+    .name = Brennan McNeeve
+    .description = Oathbound engineering specialist. His Enochian Faraday Cage plays a 432 Hz
+     archived recording that jams Azazel's sub-audible Layer One dermal tracking on nearby allies.
+
 ## support powers
 supportpower-shatter =
     .name = Shatter Protocol
