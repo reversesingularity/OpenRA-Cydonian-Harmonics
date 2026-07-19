@@ -1,0 +1,33 @@
+Cursors:
+	cydonian|cursors/default.yaml
+
+Missions:
+	cydonian|missions/example.yaml
+
+Music:
+	cydonian|music/example.yaml
+
+Notifications:
+	cydonian|notifications/example.yaml
+
+Rules:
+	cydonian|rules/example.yaml
+	cydonian|rules/harmonics.yaml
+	cydonian|rules/mpspawn.yaml
+	cydonian|rules/palettes.yaml
+	cydonian|rules/player.yaml
+	cydonian|rules/world.yaml
+
+Sequences:
+	cydonian|sequences/example.yaml
+	cydonian|sequences/mapeditor.yaml
+	cydonian|sequences/mpspawn.yaml
+
+TileSets:
+	cydonian|tilesets/example.yaml
+	
+Voices:
+	cydonian|voices/example.yaml
+
+Weapons:
+	cydonian|weapons/example.yaml

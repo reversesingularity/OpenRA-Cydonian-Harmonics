@@ -1,0 +1,50 @@
+---
+description: Global OpenRA ECS foundation and Loop Engineering for Cydonian Harmonics
+alwaysApply: true
+---
+
+# Project Foundation — Cydonian Harmonics
+
+Asymmetric RTS total conversion on the OpenRA engine (C#/.NET, MiniYaml data).
+Factions: **Oathbound Guardians** (teal-gold) vs **Nephilim Collective** (amber).
+All supernatural mechanics derive from the **Acoustic Paradigm**.
+
+## OpenRA ECS (composition, not inheritance)
+
+- An **Actor** is an empty shell. ALL behavior comes from **Traits**.
+- Trait pair: `FooInfo : TraitInfo` (immutable, YAML-bound) + `Foo` (runtime:
+  `ITick`, `INotifyCreated`, etc.).
+- MiniYaml (`mods/cydonian/rules/*.yaml`) composes traits. YAML = data;
+  C# = behavior. Never hardcode balance numbers in C#.
+- New behavior = new trait + YAML registration. Never subclass actors.
+- Prefer **conditions** (`GrantConditionOn*` / `RequiresCondition`) over
+  direct cross-trait references.
+
+## Loop Engineering (mandatory)
+
+Never guess a green build. After every C# or MiniYaml edit:
+
+1. Compile / lint
+2. Observe stdout
+3. Fix until clean
+4. Only then complete
+
+| Action | Command |
+|---|---|
+| Rebuild | `make` / `.\make.cmd` |
+| YAML lint | `./utility.sh cydonian --check-yaml` |
+| Tests | `make test` |
+
+Grind loop: `.cursor/hooks/grind.sh` (wired in `.cursor/hooks.json`).
+
+## Cursor workflow
+
+- **Plan Mode first** for complex logic → draft `.cursor/plans/<feature>.md`,
+  await human approval, then execute.
+- **Git worktrees** for major expansions (isolated branches).
+- **No YOLO** — ask before destructive commands or mass deletes.
+
+## Canon (always)
+
+Binitarian only. Azazel = Nephilim. Acoustic Paradigm only. Raphael is Tobit
+Protocol support power — never a combat unit. See `AGENTS.md`.

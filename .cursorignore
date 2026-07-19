@@ -1,0 +1,56 @@
+# Secrets and credentials — never index
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+**/secrets/**
+
+# Generated / packaged binaries
+bin/
+obj/
+/lib/
+dist/
+*.dll
+*.exe
+*.pdb
+*.AppImage
+*.nupkg
+*.zip
+
+# Vendored engine (read-only reference; huge)
+engine/
+
+# Raw high-res art pre-palette-conformance (token-heavy)
+assets/
+**/raw-art/
+**/hires/
+**/*_raw.png
+**/*_source.psd
+**/*.psd
+**/*.xcf
+**/*.tif
+**/*.tiff
+**/*.exr
+
+# Large binary / media noise
+*.pdf
+*.mp4
+*.wav
+*.flac
+*.blend
+*.fbx
+
+# IDE / OS / cache noise
+.vs/
+.idea/
+.ruff_cache/
+__pycache__/
+*.user
+Thumbs.db
+.DS_Store
+graphify-out/
+
+# Local-only overrides
+CLAUDE.local.md
+.claude/settings.local.json

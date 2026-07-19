@@ -1,0 +1,53 @@
+---
+description: OpenRA C# trait rules — TraitInfo, FieldLoader, no ITick allocations
+globs: OpenRA.Mods.Cydonian/**/*.cs,src/**/*.cs
+alwaysApply: false
+---
+
+# OpenRA C# Trait Standards
+
+Custom assembly: `OpenRA.Mods.Cydonian` (also `src/` if present). One trait
+pair per file; filename matches the trait (`AcousticResonance.cs` →
+`AcousticResonanceInfo` + runtime).
+
+## Structure
+
+- Every trait inherits from **`TraitInfo`** (or a domain-specific `*Info` base).
+- `FooInfo.Create(ActorInitializer)` returns the runtime `Foo` instance.
+- YAML-bound tunables are `public readonly` fields on `*Info` with `[Desc("...")]`.
+- Use **`[FieldLoader.Require]`** on fields that must be present in MiniYaml
+  (fail fast on missing required config — never silent defaults for critical data).
+- Runtime classes never mutate `Info`.
+
+```csharp
+public class AcousticResonanceInfo : TraitInfo
+{
+    [FieldLoader.Require]
+    [Desc("Base frequency in Hz-equivalent fixed-point units.")]
+    public readonly int BaseFrequency;
+
+    public override object Create(ActorInitializer init)
+    {
+        return new AcousticResonance(init.Self, this);
+    }
+}
+```
+
+## Performance (tick loops are hot path)
+
+- **No allocations in `ITick.Tick` / `ITickRender`**: no `new`, no LINQ,
+  no lambdas/closures, no string building, no params-array calls.
+- Resolve cross-trait refs once via `INotifyCreated`; cache into fields.
+  Never `self.Trait<T>()` inside Tick.
+- Reuse collections (clear-and-refill). Sim math is fixed-point:
+  `WDist`, `WAngle`, `WPos`, `int` — `float`/`double` in sim state = desync.
+
+## Correctness
+
+- Prefer conditions for inter-trait messaging.
+- Check `self.IsDead` / `self.Disposed` before deferred world touches.
+- No exceptions for flow control in sim code.
+
+## Verification
+
+After every edit: `make` must compile clean; new behavior needs `make test`.

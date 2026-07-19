@@ -1,0 +1,61 @@
+---
+description: MiniYaml formatting and trait composition standards for the cydonian mod
+globs: mods/**/*.yaml
+alwaysApply: false
+---
+
+# MiniYaml Standards (mods/cydonian)
+
+OpenRA MiniYaml is indentation-scoped key/value trees — **not** standard YAML.
+Generic YAML tooling (including `&` anchors / `*` aliases) will lie to you.
+Trust only `./utility.sh cydonian --check-yaml` (or `utility.cmd` on Windows).
+
+## Formatting (lint-enforced)
+
+- **Indentation = one MiniYaml level per tab, or 4 spaces** (`SpacesPerLevel = 4`
+  in the engine parser). **2-space indent breaks nesting** (traits become
+  top-level actors). Match existing `mods/cydonian/rules/*.yaml` (tabs).
+- Keys end with `:`; values on the same line. No flow syntax (`{}` / `[]`),
+  no multi-line scalars, no standard YAML anchors.
+- One actor definition per top-level key; group files by domain
+  (`infantry.yaml`, `structures.yaml`, `defaults.yaml`, `harmonics.yaml`).
+- `string[]` fields (e.g. `MapEditorData.Categories`) use a scalar list:
+  `Categories: Actors` — not a nested child key named `Categories`.
+
+## Reuse = OpenRA templates (not YAML anchors)
+
+Compose shared trait bundles via abstract template actors and `Inherits` —
+this is MiniYaml's equivalent of anchor/alias reuse:
+
+```yaml
+^GuardianInfantry:
+  # shared trait bundle
+
+oathbound-zealot:
+  Inherits: ^GuardianInfantry
+  AcousticResonance:
+    BaseFrequency: 432
+```
+
+- Prefix abstract templates with `^` (e.g. `^BasicBuilding`, `^ResonanceAura`).
+- Additional parents: `Inherits@AURA: ^ResonanceAura`.
+- Never copy-paste trait blocks — extend a template.
+
+## Trait mapping to custom assemblies
+
+- Every trait key must resolve to a `*Info` class in `OpenRA.Mods.Cydonian`
+  (or engine/common). YAML is data; C# is behavior.
+- Balance numbers live in MiniYaml only — never hardcode tunables in C#.
+- Duplicate trait instances require `@` label disambiguation:
+
+```yaml
+  GrantConditionOnDamageState@CRIPPLED:
+  GrantConditionOnDamageState@BERSERK:
+```
+
+- Strip an inherited trait with the `-` prefix (`-Selectable:`).
+
+## Verification (Loop Engineering)
+
+After every edit, run `./utility.sh cydonian --check-yaml` and fix every
+reported error before declaring the change complete.

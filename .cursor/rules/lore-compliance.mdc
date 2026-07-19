@@ -1,0 +1,46 @@
+---
+description: Use when creating unit names, campaigns, or tooltips
+alwaysApply: false
+---
+
+# Lore Compliance — Canon Guardrails
+
+Before writing unit names, tooltips, briefings, campaign copy, or faction UI
+text, validate against the Acoustic Paradigm and locked canon
+(`MASTER_LORE_BOOK.md`, `.claude/docs/lore-bible.md`). Prefer the `master-lore`
+subagent for lore-facing artifacts.
+
+## Acoustic Paradigm (required vocabulary)
+
+- Every supernatural effect must name its **acoustic** cause: frequency,
+  resonance, harmonic, waveform, attunement, detune.
+- Forbidden gameplay vocabulary: magic, mana, spells, psionics, mysticism
+  as power source.
+
+## Hard lines
+
+| Rule | Enforcement |
+|---|---|
+| Godhead | **Binitarian** (Father + Son) only — no Trinitarian language |
+| Azazel | **Nephilim**, son of Gadreel — never a Watcher |
+| Watchers | Knowledge/tech only (**Oiketerion Principle**) — no innate power |
+| Palettes | Guardians teal-gold; Collective amber |
+
+## Raphael / Liaigh — Tobit Protocol only
+
+**WARN:** Raphael (player-facing cover name **"Liaigh"**) **cannot be a
+standard combat unit**.
+
+- Presence is invoked only as the late-game support power **Tobit Protocol**
+  (wide-radius acoustic binding of supernatural enemies).
+- Respect the Three Limitations (The Ban / Heavenly Liturgy windows /
+  Name Consequence).
+- Empyreal Register for Raphael dialogue when applicable (see lore bible).
+- Do not place Raphael on build queues, infantry tabs, or as a selectable
+  hero unit.
+
+## Process
+
+1. Draft copy → check hard lines above.
+2. If unsure, consult `master-lore` before merging names/tooltips.
+3. Never contradict LOCKED claims in the lore bible.
