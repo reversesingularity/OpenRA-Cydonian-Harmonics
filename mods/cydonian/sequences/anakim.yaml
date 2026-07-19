@@ -1,0 +1,44 @@
+# Anakim-class sequence split — mandatory 2048-cap mitigation (Phase H).
+# Sheets: bits/anakim-hull.png | bits/anakim-turret.png | bits/anakim-move.png
+# Facings: 16 (T3). Never Facings: 32.
+# Compose at runtime: WithSpriteBody/WithFacingSpriteBody (hull) + WithIdleOverlay (turret).
+
+# Sheet registry keys (size-gate / standalone validation targets).
+anakim-hull:
+	idle:
+		Filename: bits/anakim-hull.png
+		Facings: 16
+		Length: 1
+		Tick: 40
+
+anakim-turret:
+	idle:
+		Filename: bits/anakim-turret.png
+		Facings: 16
+		Length: 1
+		Tick: 40
+
+anakim-move:
+	idle:
+		Filename: bits/anakim-move.png
+		Facings: 16
+		Length: 4
+		Tick: 40
+
+# Actor composite used by ANAKIM.TITAN (RenderSprites.Image: anakim).
+anakim:
+	idle:
+		Filename: bits/anakim-hull.png
+		Facings: 16
+		Length: 1
+		Tick: 40
+	move:
+		Filename: bits/anakim-move.png
+		Facings: 16
+		Length: 4
+		Tick: 40
+	turret:
+		Filename: bits/anakim-turret.png
+		Facings: 16
+		Length: 1
+		Tick: 40

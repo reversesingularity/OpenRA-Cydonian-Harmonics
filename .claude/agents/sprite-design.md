@@ -32,7 +32,8 @@ Reference: `.claude/docs/render-pipeline.md`.
 After any sequence or sheet change, observe before declaring done:
 
 ```
-./utility.sh cydonian --check-sequence-sprites
+./utility.sh cydonian --check-missing-sprites
+./utility.sh cydonian --check-yaml
 python -c "from PIL import Image; im = Image.open('<sheet>.png'); print(im.size, im.mode)"
 ```
 

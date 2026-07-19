@@ -20,6 +20,10 @@ Rules:
 
 Sequences:
 	cydonian|sequences/example.yaml
+	cydonian|sequences/visual.yaml
+	cydonian|sequences/guardians.yaml
+	cydonian|sequences/nephilim.yaml
+	cydonian|sequences/anakim.yaml
 	cydonian|sequences/mapeditor.yaml
 	cydonian|sequences/mpspawn.yaml
 

@@ -223,7 +223,9 @@ CELESTIAL_STARGATE:
 ANAKIM.TITAN:
 	Inherits: ^NephilimUnit
 	RenderSprites:
-		Image: example
+		Image: anakim
+	WithIdleOverlay@TURRET:
+		Sequence: turret
 	AnakimPhysicalPresenceScaler:
 		VisualScaleFactor: 350
 		CustomCollisionRadius: 1c0

@@ -1,0 +1,19 @@
+# Phase H — facing budget and shared visual conventions.
+# T0 infantry / drones / secondary support: Facings: 8
+# T1 secondary vehicles / light walkers / structure anims: Facings: 8
+# T2 core roster vehicles / standard mechs: Facings: 16
+# T3 Anakim / hero primary parts (per split sheet): Facings: 16
+# Facings: 32 is FORBIDDEN — reject at sprite-design review.
+#
+# Sheet cap: every PNG under bits/ must be <= 2048x2048.
+# Anakim-class: split hull / turret / move into distinct sheets (see anakim.yaml).
+# Palette: remap via --remap-palette against uibits/cydonian.pal before registration.
+#
+# Shared defaults for roster authors (offsets / tick rates). Actor sequences live in
+# guardians.yaml, nephilim.yaml, and anakim.yaml — keep Facings matching frame counts.
+
+visual-conventions:
+	idle:
+		Filename: sequences/assets/example.png
+		Tick: 40
+		ZOffset: 0

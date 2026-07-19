@@ -23,8 +23,8 @@ sheet. Required approach:
 2. Compose at runtime with `WithSpriteBody` plus additional `With*` render
    traits, sharing the actor's facing.
 3. Keep per-part frame counts identical so facings stay synchronized.
-4. Verify with `./utility.sh cydonian --check-sequence-sprites` — observed
-   clean output is the done-condition.
+4. Verify with `./utility.sh cydonian --check-missing-sprites` (and
+   `--check-yaml`) — observed clean output is the done-condition.
 
 ## Dynamic PNG Metadata Baking
 
@@ -41,10 +41,14 @@ into PNG ancillary chunks by the asset pipeline at import time:
 
 ## Import Procedure (raw art -> game)
 
-1. Drop raw art in `assets/raw/`.
-2. `/process-palette-sheet` — conform to the global palette (observe output).
-3. Author the sequence YAML in `mods/cydonian/sequences/` (2-space indent,
-   facings matching frame count).
-4. `./utility.sh cydonian --check-sequence-sprites` and
+1. Drop raw art in `assets/raw/` (Anakim parts under `assets/raw/anakim/`).
+2. `/process-palette-sheet` — runs
+   `./utility.sh cydonian --remap-palette … --palette mods/cydonian/uibits/cydonian.pal`
+   (observe output; bake `--frame-size` / `--frame-amount` when slicing sheets).
+3. Author the sequence YAML in `mods/cydonian/sequences/` (`visual.yaml` facing
+   tiers; roster in `guardians.yaml` / `nephilim.yaml` / `anakim.yaml`).
+   Indentation matches existing MiniYaml (tabs). Facings must match frame count;
+   never `Facings: 32`.
+4. `./utility.sh cydonian --check-missing-sprites` and
    `./utility.sh cydonian --check-yaml` — both observed clean.
 5. In-game smoke test per `CLAUDE.local.md` debug flags before sign-off.

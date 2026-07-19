@@ -1,13 +1,21 @@
 ^palettes:
+	# Global 256-color Cydonian palette (JASC). Index 0 = transparent.
+	# Remap band 80-95 is reserved for player color (Guardians teal-gold / Collective amber).
+	PaletteFromGimpOrJascFile@cydonian:
+		Name: cydonian
+		Filename: uibits/cydonian.pal
+		TransparentIndex: 0
 	PaletteFromGrayscale@greyscale:
 		Name: greyscale
 	PlayerColorPalette@player:
-		BasePalette: greyscale
+		BasePalette: cydonian
+		RemapIndex: 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
 	PlayerColorShift:
 		BasePalette: player
 	ColorPickerPalette@colorpicker:
 		Name: colorpicker
-		BasePalette: greyscale
+		BasePalette: cydonian
+		RemapIndex: 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95
 		AllowModifiers: false
 	ColorPickerColorShift:
 		BasePalette: colorpicker
