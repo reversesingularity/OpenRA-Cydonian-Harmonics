@@ -1,0 +1,30 @@
+# VoiceSet banks — clip stems omit extension; DefaultVariant appends .wav.
+# Waveforms live under mods/cydonian/audio/voices/<register>/ (Grok TTS drop zone).
+
+GuardianInfantryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: audio/voices/guardians/select
+		Action: audio/voices/guardians/action
+		Die: audio/voices/guardians/die
+
+NephilimInfantryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: audio/voices/nephilim/select
+		Action: audio/voices/nephilim/action
+		Die: audio/voices/nephilim/die
+
+CianVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: audio/voices/cian/select
+		Action: audio/voices/cian/action
+		Die: audio/voices/cian/die
+
+BrennanVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: audio/voices/brennan/select
+		Action: audio/voices/brennan/action
+		Die: audio/voices/brennan/die

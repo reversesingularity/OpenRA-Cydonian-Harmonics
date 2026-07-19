@@ -1,7 +1,9 @@
 dermal-mark:
+	Inherits: ^AcousticStrike
 	ValidTargets: GroundActor, WaterActor
 	Range: 5c0
 	ReloadDelay: 60
+	Report: audio/weapons/dermal-mark-tone.wav
 	Projectile: InstantHit
 	Warhead@MARK: GrantExternalCondition
 		Condition: dermal-mark
@@ -11,5 +13,6 @@ dermal-mark:
 		ValidRelationships: Enemy
 		ValidTargets: GroundActor, WaterActor
 	Warhead@STATIC: PlayUiSound
+		Sound: audio/weapons/dermal-mark-tone.wav
 		ValidRelationships: Enemy
 		ValidTargets: GroundActor, WaterActor

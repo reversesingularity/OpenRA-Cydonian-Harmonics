@@ -31,6 +31,8 @@
 # Abstract Nephilim receiver bundle — Mo Chrá anti-ward (ward-unraveled) shreds armor.
 ^NephilimUnit:
 	Inherits: example
+	Voiced:
+		VoiceSet: NephilimInfantryVoice
 	ExternalCondition@WARDUNRAVELED:
 		Condition: ward-unraveled
 	DamageMultiplier@WARDUNRAVELED:
@@ -43,6 +45,8 @@
 # Stub infantry until the full Oathbound roster lands.
 GUARDIAN.INFANTRY:
 	Inherits: ^GuardianUnit
+	Voiced:
+		VoiceSet: GuardianInfantryVoice
 	RenderSprites:
 		Image: example
 	MapEditorData:
@@ -58,6 +62,8 @@ CIAN.MACMORNA:
 		Cursor: default
 		BlockedCursor: default
 	Selectable:
+	Voiced:
+		VoiceSet: CianVoice
 	ProximityExternalCondition@MOCHRA:
 		Condition: ward-unraveled
 		Range: 5c0
@@ -86,6 +92,8 @@ BRENNAN.MCNEEVE:
 		Cursor: default
 		BlockedCursor: default
 	Selectable:
+	Voiced:
+		VoiceSet: BrennanVoice
 	ProximityExternalCondition@FARADAY:
 		Condition: faraday-shield
 		Range: 5c0
@@ -98,7 +106,7 @@ BRENNAN.MCNEEVE:
 		Visible: WhenSelected
 		ValidRelationships: Ally
 	AmbientSound@FARADAY:
-		SoundFiles: audio/faraday-hum.wav
+		SoundFiles: audio/ambients/faraday-hum.wav
 		Interval: 40
 	RenderSprites:
 		Image: example
@@ -183,6 +191,9 @@ RESONANCE.SPIRE:
 		StartFullyCharged: true
 		SupportPowerPaletteOrder: 20
 		AllowMultiple: false
+		LaunchSound: audio/weapons/sustain-harmony-strike.wav
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
 	FirepowerMultiplier@ALIGNED:
 		RequiresCondition: celestially-aligned
 		Modifier: 150
@@ -203,6 +214,7 @@ CELESTIAL_STARGATE:
 		ChargeInterval: 3000
 		ResonanceCost: 250
 		Weapon: shatter-protocol
+		OnFireSound: audio/weapons/shatter-onfire.wav
 		Icon: idle
 		IconImage: example
 		IconPalette: greyscale
@@ -216,6 +228,8 @@ CELESTIAL_STARGATE:
 		StartFullyCharged: true
 		SupportPowerPaletteOrder: 10
 		AllowMultiple: false
+		SelectTargetSpeechNotification: SelectTarget
+		InsufficientPowerSpeechNotification: InsufficientPower
 	FirepowerMultiplier@ALIGNED:
 		RequiresCondition: celestially-aligned
 		Modifier: 150

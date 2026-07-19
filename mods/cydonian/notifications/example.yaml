@@ -1,5 +1,20 @@
-Sounds:
+# Speech / Sounds notification banks.
+# Raphael Empyreal Register lines are TobitProtocol-only — never a combat VoiceSet.
+
+Speech:
+	DefaultVariant: .wav
 	Notifications:
-		ChatLine:
-		ClickDisabledSound:
-		ClickSound:
+		BaseAttack: audio/voices/guardians/base-attack
+		InsufficientPower: audio/voices/guardians/insufficient-resonance
+		InsufficientFunds: audio/voices/guardians/insufficient-resonance
+		SelectTarget: audio/voices/guardians/select-target
+		TobitProtocol: audio/voices/tobit/tobit-engage
+
+Sounds:
+	DefaultVariant: .wav
+	Notifications:
+		ChatLine: audio/ui/chat-tone
+			InterruptType: Interrupt
+		ClickSound: audio/ui/click
+			InterruptType: Overlap
+		ClickDisabledSound: audio/ui/click-disabled

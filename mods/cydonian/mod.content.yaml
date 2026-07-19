@@ -34,6 +34,7 @@ Voices:
 	cydonian|voices/example.yaml
 
 Weapons:
+	cydonian|weapons/acoustic-common.yaml
 	cydonian|weapons/example.yaml
 	cydonian|weapons/shatter-protocol.yaml
 	cydonian|weapons/dermal-mark.yaml

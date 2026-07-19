@@ -1,6 +1,8 @@
 shatter-protocol:
+	Inherits: ^AcousticStrike
 	ValidTargets: Ground, Water, GroundActor, WaterActor
 	Range: 0c0
+	Report: audio/weapons/shatter-clash.wav
 	Projectile: InstantHit
 	Warhead@WARDS: RevokeExternalCondition
 		Condition: warded
@@ -26,3 +28,4 @@ shatter-protocol:
 		Image: example
 		Explosions: idle
 		ImpactActors: false
+		ImpactSounds: audio/weapons/shatter-drone.wav
