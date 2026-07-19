@@ -25,6 +25,18 @@
 		RequiresCondition: dermal-mark
 		Color: CC884066
 
+# Abstract Nephilim receiver bundle — Mo Chrá anti-ward (ward-unraveled) shreds armor.
+^NephilimUnit:
+	Inherits: example
+	ExternalCondition@WARDUNRAVELED:
+		Condition: ward-unraveled
+	DamageMultiplier@WARDUNRAVELED:
+		RequiresCondition: ward-unraveled
+		Modifier: 150
+	WithColoredOverlay@WARDUNRAVELED:
+		RequiresCondition: ward-unraveled
+		Color: 20808066
+
 # Stub infantry until the full Oathbound roster lands.
 GUARDIAN.INFANTRY:
 	Inherits: ^GuardianUnit
@@ -33,9 +45,37 @@ GUARDIAN.INFANTRY:
 	MapEditorData:
 		Categories: Actors
 
+# Cian mac Morna — Mo Chrá Armaros-class counter-frequency aura (passive).
+CIAN.MACMORNA:
+	Inherits: ^GuardianUnit
+	-Immobile:
+	Mobile:
+		Locomotor: foot
+		Speed: 68
+		Cursor: default
+		BlockedCursor: default
+	Selectable:
+	ProximityExternalCondition@MOCHRA:
+		Condition: ward-unraveled
+		Range: 5c0
+		ValidRelationships: Enemy
+		AffectsParent: false
+	WithRangeCircle@MOCHRA:
+		Type: mo-chra-anti-ward
+		Range: 5c0
+		Color: 208080A0
+		Visible: WhenSelected
+		ValidRelationships: Ally
+	RenderSprites:
+		Image: example
+	Tooltip:
+		Name: actor-cian-mac-morna.name
+	MapEditorData:
+		Categories: Actors
+
 # Azazel Layer One applicator stub (Nephilim proxy infantry).
 AZAZEL.PROXY:
-	Inherits: example
+	Inherits: ^NephilimUnit
 	-Immobile:
 	Health:
 		HP: 8000
@@ -147,7 +187,7 @@ CELESTIAL_STARGATE:
 		Modifier: 150
 
 ANAKIM.TITAN:
-	Inherits: example
+	Inherits: ^NephilimUnit
 	RenderSprites:
 		Image: example
 	AnakimPhysicalPresenceScaler:

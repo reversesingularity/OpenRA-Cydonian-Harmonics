@@ -15,6 +15,11 @@ actor-azazel-proxy =
     .description = Nephilim Layer One applicator.
      Tags enemies with a sub-audible dermal frequency for permanent tracking.
 
+actor-cian-mac-morna =
+    .name = Cian mac Morna
+    .description = Oathbound hero. Mo Chrá projects an Armaros-class counter-frequency
+     that unravels Watcher-grade wards on nearby enemies.
+
 ## support powers
 supportpower-shatter =
     .name = Shatter Protocol
