@@ -9,6 +9,12 @@ faction-example =
     .description = Example Faction
      Provide your own faction description here.
 
+## actors
+actor-azazel-proxy =
+    .name = Azazel Proxy
+    .description = Nephilim Layer One applicator.
+     Tags enemies with a sub-audible dermal frequency for permanent tracking.
+
 ## support powers
 supportpower-shatter =
     .name = Shatter Protocol

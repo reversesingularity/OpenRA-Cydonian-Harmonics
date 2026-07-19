@@ -1,0 +1,15 @@
+dermal-mark:
+	ValidTargets: GroundActor, WaterActor
+	Range: 5c0
+	ReloadDelay: 60
+	Projectile: InstantHit
+	Warhead@MARK: GrantExternalCondition
+		Condition: dermal-mark
+		Duration: 0
+		Range: 0c0
+		AffectsParent: false
+		ValidRelationships: Enemy
+		ValidTargets: GroundActor, WaterActor
+	Warhead@STATIC: PlayUiSound
+		ValidRelationships: Enemy
+		ValidTargets: GroundActor, WaterActor

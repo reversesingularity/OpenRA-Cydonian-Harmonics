@@ -1,8 +1,10 @@
-# Abstract Oathbound receiver bundle — ExternalCondition + regen + ward while harmony-sustained.
+# Abstract Oathbound receiver bundle — harmony buffs + dermal-mark Layer One receivers.
 ^GuardianUnit:
 	Inherits: example
 	Health:
 		HP: 10000
+	Targetable:
+		TargetTypes: GroundActor, Infantry
 	ExternalCondition@HARMONY:
 		Condition: harmony-sustained
 	ChangesHealth@HARMONY:
@@ -13,12 +15,51 @@
 	DamageMultiplier@HARMONY:
 		RequiresCondition: harmony-sustained
 		Modifier: 50
+	ExternalCondition@DERMALMARK:
+		Condition: dermal-mark
+	RevealsShroud@DERMALMARK:
+		RequiresCondition: dermal-mark
+		Range: 2c0
+		ValidRelationships: Enemy
+	WithColoredOverlay@DERMALMARK:
+		RequiresCondition: dermal-mark
+		Color: CC884066
 
 # Stub infantry until the full Oathbound roster lands.
 GUARDIAN.INFANTRY:
 	Inherits: ^GuardianUnit
 	RenderSprites:
 		Image: example
+	MapEditorData:
+		Categories: Actors
+
+# Azazel Layer One applicator stub (Nephilim proxy infantry).
+AZAZEL.PROXY:
+	Inherits: example
+	-Immobile:
+	Health:
+		HP: 8000
+	Mobile:
+		Locomotor: foot
+		Speed: 72
+		Cursor: default
+		BlockedCursor: default
+	Selectable:
+	Targetable:
+		TargetTypes: GroundActor, Infantry
+	Armament:
+		Weapon: dermal-mark
+		Cursor: default
+		OutsideRangeCursor: default
+		MuzzlePalette: greyscale
+	AttackFrontal:
+		FacingTolerance: 512
+	AutoTarget:
+		ScanRadius: 6
+	RenderSprites:
+		Image: example
+	Tooltip:
+		Name: actor-azazel-proxy.name
 	MapEditorData:
 		Categories: Actors
 
