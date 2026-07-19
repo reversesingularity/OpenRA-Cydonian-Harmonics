@@ -1,6 +1,12 @@
 # Cydonian Harmonics
 
+[![GitHub](https://img.shields.io/badge/GitHub-OpenRA--Cydonian--Harmonics-208080?logo=github)](https://github.com/reversesingularity/OpenRA-Cydonian-Harmonics)
+[![Engine](https://img.shields.io/badge/OpenRA-release--20250330-c9a227)](https://github.com/OpenRA/OpenRA)
+[![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](COPYING)
+
 **Asymmetric real-time strategy total conversion on the [OpenRA](https://github.com/OpenRA/OpenRA) engine.**
+
+Repository: https://github.com/reversesingularity/OpenRA-Cydonian-Harmonics
 
 Oathbound Guardians and the Nephilim Collective contest **Resonance** across Mars-Cydonia and Earth flashpoints. Every supernatural effect traces to the **Acoustic Paradigm** — sound and frequency as root physic. There is no mana, magic, or psionics vocabulary.
 
