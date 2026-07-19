@@ -4,8 +4,10 @@
 
 | Item | Value |
 |---|---|
-| Branch | `main` |
+| Branch | `main` → `origin/main` |
+| GitHub | https://github.com/reversesingularity/OpenRA-Cydonian-Harmonics |
 | Phase J commit | `15cf594` — Lua campaign architecture and Operational Silence |
+| Docs commit | `81cec05` — README, governance, session, key art |
 | Release tag used for packaging | `release-20260719` |
 | Pre-flight | `.\make.cmd all` + `--check-yaml` green before packaging |
 | Packaging host | WSL Ubuntu (Git Bash lacked `makensis` / `wine64` / GNU `make`) |
@@ -32,9 +34,9 @@
 
 1. Attach `packaging/output/CydonianHarmonics-release-20260719-x64.exe` (and
    AppImage if needed) to the CODE KickStart grant packet.
-2. Push `main` to GitHub after remote create (see README badge / repo URL).
-3. Optional: produce macOS `.dmg` on a macOS builder.
-4. Optional: install `wine32:i386` in WSL to silence rcedit warnings.
+2. Optional: produce macOS `.dmg` on a macOS builder.
+3. Optional: install `wine32:i386` in WSL to silence rcedit warnings.
+4. Optional: add GitHub Actions CI for `make` + `--check-yaml`.
 
 ## Canon reminder
 
