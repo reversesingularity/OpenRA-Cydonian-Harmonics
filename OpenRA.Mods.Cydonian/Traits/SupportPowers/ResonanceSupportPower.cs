@@ -9,7 +9,6 @@
  */
 #endregion
 
-using System.Linq;
 using OpenRA.GameRules;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
@@ -50,7 +49,7 @@ namespace OpenRA.Mods.Cydonian.Traits
 		}
 	}
 
-	public class ResonanceSupportPower : SupportPower
+	public class ResonanceSupportPower : SupportPower, IResonancePricedSupportPower
 	{
 		readonly ResonanceSupportPowerInfo info;
 		PlayerResonance pool;
@@ -70,30 +69,13 @@ namespace OpenRA.Mods.Cydonian.Traits
 
 		public override SupportPowerInstance CreateInstance(string key, SupportPowerManager manager)
 		{
-			return new ResonanceSupportPowerInstance(key, info, manager);
+			return new ResonanceGatedSupportPowerInstance(key, info, manager);
 		}
 
 		/// <summary>Attempt Resonance spend. False leaves the support power charged.</summary>
 		public bool TryConsumeCost(Actor self)
 		{
-			if (pool == null)
-			{
-				Game.Sound.PlayNotification(self.World.Map.Rules, self.Owner, "Speech",
-					Info.InsufficientPowerSpeechNotification, self.Owner.Faction.InternalName);
-				TextNotificationsManager.AddTransientLine(self.Owner, Info.InsufficientPowerTextNotification);
-				return false;
-			}
-
-			if (!pool.Take(info.ResonanceCost))
-			{
-				Game.Sound.PlayToPlayer(SoundType.UI, self.Owner, Info.InsufficientPowerSound);
-				Game.Sound.PlayNotification(self.World.Map.Rules, self.Owner, "Speech",
-					Info.InsufficientPowerSpeechNotification, self.Owner.Faction.InternalName);
-				TextNotificationsManager.AddTransientLine(self.Owner, Info.InsufficientPowerTextNotification);
-				return false;
-			}
-
-			return true;
+			return ResonancePowerActivation.TryConsume(self, pool, Info, info.ResonanceCost);
 		}
 
 		public override void Activate(Actor self, Order order, SupportPowerManager manager)
@@ -109,36 +91,6 @@ namespace OpenRA.Mods.Cydonian.Traits
 				return;
 
 			info.WeaponInfo.Impact(order.Target, self);
-		}
-
-		sealed class ResonanceSupportPowerInstance : SupportPowerInstance
-		{
-			public ResonanceSupportPowerInstance(string key, SupportPowerInfo info, SupportPowerManager manager)
-				: base(key, info, manager) { }
-
-			public override void Activate(Order order)
-			{
-				if (!Ready)
-					return;
-
-				var power = Instances.Where(i => !i.IsTraitPaused && !i.IsTraitDisabled)
-					.MinByOrDefault(a =>
-					{
-						if (a.Self.OccupiesSpace == null || order.Target.Type == TargetType.Invalid)
-							return 0;
-
-						return (a.Self.CenterPosition - order.Target.CenterPosition).HorizontalLengthSquared;
-					}) as ResonanceSupportPower;
-
-				if (power == null)
-					return;
-
-				// Deduct before base.Activate so failed spends do not consume charge.
-				if (!power.TryConsumeCost(power.Self))
-					return;
-
-				base.Activate(order);
-			}
 		}
 	}
 }

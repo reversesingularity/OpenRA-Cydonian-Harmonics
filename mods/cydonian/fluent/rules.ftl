@@ -15,6 +15,11 @@ supportpower-shatter =
     .description = Expend Resonance to project a counter-frequency.
      Strips Oathbound acoustic wards and devastates structures.
 
+supportpower-sustain-harmony =
+    .name = Sustain Harmony
+    .description = Expend Resonance to lock the Creation Frequency over a zone.
+     Allies regenerate rapidly and are warded against Nephilim pressure.
+
 supportpowers =
     .ready = Ready
     .hold = On Hold

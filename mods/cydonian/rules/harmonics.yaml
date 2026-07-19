@@ -1,5 +1,29 @@
-RESONANCE.SPIRE:
+# Abstract Oathbound receiver bundle — ExternalCondition + regen + ward while harmony-sustained.
+^GuardianUnit:
 	Inherits: example
+	Health:
+		HP: 10000
+	ExternalCondition@HARMONY:
+		Condition: harmony-sustained
+	ChangesHealth@HARMONY:
+		RequiresCondition: harmony-sustained
+		Step: 200
+		Delay: 5
+		StartIfBelow: 100
+	DamageMultiplier@HARMONY:
+		RequiresCondition: harmony-sustained
+		Modifier: 50
+
+# Stub infantry until the full Oathbound roster lands.
+GUARDIAN.INFANTRY:
+	Inherits: ^GuardianUnit
+	RenderSprites:
+		Image: example
+	MapEditorData:
+		Categories: Actors
+
+RESONANCE.SPIRE:
+	Inherits: ^GuardianUnit
 	RenderSprites:
 		Image: example
 	AcousticResonance@SUSTAIN:
@@ -19,6 +43,31 @@ RESONANCE.SPIRE:
 		DecayScalar: 1024
 		RequiresAlignmentNode: true
 		UpdateInterval: 5
+	ResonanceGrantExternalConditionPower@HARMONY:
+		OrderName: SustainHarmony
+		ChargeInterval: 3000
+		ResonanceCost: 200
+		Condition: harmony-sustained
+		Duration: 750
+		ValidRelationships: Ally
+		Dimensions: 5, 5
+		Footprint: xxxxx xxxxx xxxxx xxxxx xxxxx
+		FootprintImage: example
+		FootprintSequence: idle
+		Sequence: idle
+		Icon: idle
+		IconImage: example
+		IconPalette: greyscale
+		Cursor: default
+		BlockedCursor: default
+		BeaconPalette: greyscale
+		BeaconPaletteIsPlayerPalette: false
+		BeaconPosterPalette: greyscale
+		Name: supportpower-sustain-harmony.name
+		Description: supportpower-sustain-harmony.description
+		StartFullyCharged: true
+		SupportPowerPaletteOrder: 20
+		AllowMultiple: false
 	FirepowerMultiplier@ALIGNED:
 		RequiresCondition: celestially-aligned
 		Modifier: 150

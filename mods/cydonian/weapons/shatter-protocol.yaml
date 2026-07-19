@@ -7,6 +7,11 @@ shatter-protocol:
 		Range: 2c0
 		AffectsParent: false
 		ValidTargets: Ground, GroundActor, WaterActor
+	Warhead@HARMONY: RevokeExternalCondition
+		Condition: harmony-sustained
+		Range: 2c0
+		AffectsParent: false
+		ValidTargets: Ground, GroundActor, WaterActor
 	Warhead@STRUCTURE: SpreadDamage
 		Spread: 1c0
 		Damage: 20000
